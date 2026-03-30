@@ -1,0 +1,1507 @@
+{
+  "schema_version": "2.0.1",
+  "domain": "product_costing",
+  "language": [
+    "fr",
+    "en"
+  ],
+  "created_on": "2026-03-26",
+  "purpose": [
+    "RAG retrieval for costing team questions",
+    "training content generation",
+    "knowledge graph / KMS seeding",
+    "rule-based reasoning support for product costing"
+  ],
+  "design_principles": [
+    "Capture cause-effect logic, not only standalone rules",
+    "Preserve operational subtleties expressed by management",
+    "Make retrieval easy through subjects, keywords, alerts, and decision rules",
+    "Keep customer, company, cash, and industrial strategy constraints visible"
+  ],
+  "global_keywords": [
+    "costing",
+    "pricing",
+    "ROI",
+    "VAN",
+    "working capital",
+    "BFR",
+    "material cost",
+    "value added",
+    "transport",
+    "forwarder fees",
+    "import duties",
+    "tooling",
+    "specific investment",
+    "generic capex",
+    "vertical integration",
+    "price target",
+    "indexation",
+    "productivity",
+    "supplier negotiation",
+    "should cost",
+    "stamping",
+    "injection",
+    "Euromed",
+    "factoring",
+    "credit insurance",
+    "ex works",
+    "SOP",
+    "finance groupe",
+    "revue périodique",
+    "taux horaire",
+    "management fees",
+    "frais fixes",
+    "taux d'intérêt"
+  ],
+  "subjects": [
+    {
+      "id": "S01",
+      "title_fr": "Priorité fondamentale du costing",
+      "title_en": "Fundamental costing priority",
+      "summary": "Le costing doit toujours chercher à minimiser le coût complet, en distinguant clairement matière, valeur ajoutée et coûts d’approche/logistique. La réduction du coût matière est prioritaire car l’entreprise gagne son argent sur la valeur ajoutée qu’elle crée, pas sur la matière qu’elle achète et revend.",
+      "keywords": [
+        "minimiser le coût",
+        "coût matière",
+        "valeur ajoutée",
+        "transport",
+        "forwarder fees",
+        "taxes d'importation",
+        "coût complet",
+        "approvisionnement"
+      ],
+      "details": [
+        "Le coût opérationnel se lit au minimum en trois blocs : coût matière, coût de valeur ajoutée, coûts de transport et frais d’approche.",
+        "L’ordre de priorité est important : avant de dégrader la valeur ajoutée, il faut d’abord minimiser la matière.",
+        "L’entreprise est une société de transformation : plus la part de valeur ajoutée vendue est forte, plus la contribution de l’activité est intéressante.",
+        "Les frais d’approche incluent notamment transport, forwarder fees, taxes d’importation et autres coûts liés à l’acheminement."
+      ],
+      "alerts": [
+        "Baisser la marge ou la valeur ajoutée avant d’avoir challengé la matière est une mauvaise réaction.",
+        "Confondre compétitivité prix et destruction de valeur ajoutée conduit à des mauvaises décisions."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S02",
+        "S03",
+        "S11",
+        "S17"
+      ],
+      "tags": [
+        "foundation",
+        "economics",
+        "pricing"
+      ]
+    },
+    {
+      "id": "S02",
+      "title_fr": "Réduction du coût matière",
+      "title_en": "Material cost reduction",
+      "summary": "La matière doit être attaquée par la négociation achats, le redesign produit, le choix fournisseur, la zone géographique et, si pertinent, l’intégration verticale. Le coût matière est le premier levier de compétitivité.",
+      "keywords": [
+        "matière",
+        "supplier negotiation",
+        "redesign",
+        "recyclé",
+        "tolérances",
+        "nombre d'empreintes",
+        "levier volume",
+        "fournisseur le moins cher"
+      ],
+      "details": [
+        "Premier levier : négociation achats avec recherche active du fabricant le moins cher et, si nécessaire, sourcing dans d’autres zones géographiques pour créer du levier.",
+        "Deuxième levier : reconception produit pour diminuer le coût (changer matière, relâcher spécifications, utiliser du recyclé, accélérer temps de cycle, ajuster nombre d’empreintes/cavités, réduire masse ou complexité).",
+        "Troisième levier : choisir les fournisseurs avec lesquels le groupe a du levier volume sur d’autres programmes.",
+        "Quatrième levier : internaliser quand cela permet de mieux capter la valeur ajoutée, sans détruire la cohérence économique du prix interne."
+      ],
+      "alerts": [
+        "Une matière trop élevée vient souvent d’un prix achat excessif, d’un design trop lourd, d’un scrap trop fort ou de frais d’approche mal maîtrisés.",
+        "Ne pas sourcer à l’international quand cela donne du levier est une perte d’opportunité."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S01",
+        "S08",
+        "S11",
+        "S17"
+      ],
+      "tags": [
+        "material",
+        "sourcing",
+        "design"
+      ]
+    },
+    {
+      "id": "S03",
+      "title_fr": "Valeur ajoutée, main-d’œuvre et automatisation",
+      "title_en": "Added value, labor and automation balance",
+      "summary": "Le groupe recherche le meilleur ratio entre automatisation et main-d’œuvre. Il faut maximiser la valeur ajoutée avec le moins de personnes possible, tout en évitant les automatismes coûteux quand une organisation manuelle ergonomique en pays low cost est plus compétitive.",
+      "keywords": [
+        "main d'oeuvre",
+        "automatisation",
+        "ergonomie",
+        "mode opératoire",
+        "temps masqué",
+        "assemblage",
+        "manuel vs robot",
+        "industrial vision"
+      ],
+      "details": [
+        "En assemblage, il faut privilégier des opérations grandes séries, des temps masqués et un travail opérateur à deux mains intégrant des contrôles visuels intelligents.",
+        "Le chargement/déchargement ou certains contrôles simples peuvent rester manuels si cela est économiquement supérieur au robot, en particulier en pays low cost.",
+        "Le but n’est pas de supprimer la main-d’œuvre, mais de maximiser la valeur ajoutée par personne.",
+        "L’équilibre entre automatisation, ergonomie et mode opératoire est un sujet central de conception de ligne."
+      ],
+      "alerts": [
+        "Acheter des robots de chargement ou de vision par réflexe peut détruire la compétitivité.",
+        "Une ligne trop automatisée augmente CAPEX, risque, maintenance et rigidité."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S04",
+        "S05",
+        "S06"
+      ],
+      "tags": [
+        "labor",
+        "automation",
+        "assembly"
+      ]
+    },
+    {
+      "id": "S04",
+      "title_fr": "Poka-yoke et contrôles automatiques",
+      "title_en": "Poka-yoke and automated controls",
+      "summary": "Même lorsque les opérateurs réalisent des contrôles visuels, les moyens de production doivent intégrer des poka-yoke automatiques pour sécuriser le respect du process, ainsi que des contrôles automatisés en fin de ligne pour protéger le client.",
+      "keywords": [
+        "poka-yoke",
+        "pression",
+        "déplacement",
+        "force",
+        "end of line control",
+        "conformité",
+        "contrôle automatique",
+        "qualité"
+      ],
+      "details": [
+        "Les poka-yoke doivent vérifier que les paramètres critiques du process ont bien été appliqués : pression, déplacement, force, etc.",
+        "Le contrôle visuel opérateur est utile mais n’est pas fiable à 100 %.",
+        "Des contrôles automatisés de fin de ligne doivent être mis en place de façon systématique pour éviter l’expédition de pièces défectueuses.",
+        "Cette logique combine compétitivité de main-d’œuvre et sécurisation qualité."
+      ],
+      "alerts": [
+        "Remplacer tous les contrôles automatiques par du visuel humain seul est risqué.",
+        "Un faible CAPEX ne doit jamais exposer le client à des défauts évitables."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S03",
+        "S05"
+      ],
+      "tags": [
+        "quality",
+        "automation",
+        "process-control"
+      ]
+    },
+    {
+      "id": "S05",
+      "title_fr": "Outillages spécifiques",
+      "title_en": "Specific tooling",
+      "summary": "Les outillages spécifiques, même payés par le client, doivent être minimisés en coût, délai et complexité. La compétitivité globale pour le client dépend aussi du coût de ces outils.",
+      "keywords": [
+        "outillage spécifique",
+        "client owner",
+        "empreintes",
+        "sourcing Asie",
+        "impression 3D",
+        "usinage low cost",
+        "délai de mise en série"
+      ],
+      "details": [
+        "Les outils spécifiques sont en général payés par le client et lui appartiennent, mais ils doivent néanmoins être optimisés.",
+        "Les leviers : négociation fournisseur, sourcing asiatique, optimisation du nombre d’empreintes, conception interne de posages/outils, impression 3D, usinage low cost.",
+        "Il faut réduire non seulement le coût, mais aussi le délai et la rapidité d’exécution, car la mise en série rapide devient un facteur critique pour le client."
+      ],
+      "alerts": [
+        "Considérer qu’un outil payé par le client n’a pas besoin d’être optimisé est une erreur.",
+        "Un outillage surdimensionné peut retarder le SOP et nuire à la compétitivité."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S06",
+        "S07"
+      ],
+      "tags": [
+        "tooling",
+        "launch",
+        "customer"
+      ]
+    },
+    {
+      "id": "S06",
+      "title_fr": "Outils et investissements internes",
+      "title_en": "Internal tooling and investments",
+      "summary": "Les outils et investissements internes doivent être imputés correctement : les génériques se déprécient dans le prix pièce du composant, les spécifiques sont refacturés au client interne concerné avec une marge raisonnable.",
+      "keywords": [
+        "outils internes",
+        "investissements internes",
+        "générique",
+        "spécifique",
+        "dépréciation",
+        "prix pièce",
+        "client interne",
+        "marge raisonnable"
+      ],
+      "details": [
+        "Le coût ne doit pas être caché : il doit être affecté au bon niveau dans la chaîne de valeur.",
+        "Les investissements génériques doivent être amortis dans le prix pièce du composant.",
+        "Les investissements spécifiques doivent être passés au client interne qui consomme la capacité spécifique, avec une marge raisonnable.",
+        "Cette règle est essentielle pour que l’intégration verticale reste économiquement lisible."
+      ],
+      "alerts": [
+        "Ne pas imputer correctement les outils/investissements internes fausse la consolidation des marges.",
+        "Sous-facturer les composants internes détruit la visibilité économique."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S12",
+        "S13",
+        "S18"
+      ],
+      "tags": [
+        "internal-transfer",
+        "tooling",
+        "capex"
+      ]
+    },
+    {
+      "id": "S07",
+      "title_fr": "Revue Pareto des outillages et investissements",
+      "title_en": "Pareto review of tooling and investments",
+      "summary": "Avant de diffuser un chiffrage, il faut classer les coûts d’outillage et d’investissement par ordre décroissant, isoler les quelques items représentant environ 80 % du coût, puis challenger leur nécessité et leur raisonnabilité.",
+      "keywords": [
+        "Pareto",
+        "80/20",
+        "tooling review",
+        "investment review",
+        "injection",
+        "stamping",
+        "press tonnage",
+        "machine speed",
+        "3 shifts"
+      ],
+      "details": [
+        "Les problèmes majeurs se concentrent souvent sur l’injection plastique et la découpe/emboutissage.",
+        "Pour le plastique : challenger tooling chinois, tonnage presse, vitesse machine, chargement manuel vs automatique, nombre de cycles par an.",
+        "Pour le stamping : challenger tooling chinois, tonnage presse, vitesse presse ; souvent il vaut mieux une presse plus lente avec outil moins cher qu’un outil très cher pour une presse rapide.",
+        "Pour les investissements : appliquer la même logique Pareto et challenger les hypothèses de cadence, taux machine, duplication d’équipements et nombre de shifts.",
+        "Il faut être particulièrement prudent avec les duplications d’équipement liées à des hypothèses de taux machine ou d’ouverture usine mal évaluées.",
+        "Souvent, faire tourner trois shifts est meilleur que multiplier des investissements sous-utilisés."
+      ],
+      "alerts": [
+        "De mauvaises hypothèses de taux machine ou d’open time créent du cash consommé inutilement, détruisent le ROI, prennent de la place et augmentent les spare parts.",
+        "Les gros postes non challengés sont souvent la vraie raison d’un prix non compétitif."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S05",
+        "S13",
+        "S14"
+      ],
+      "tags": [
+        "capex",
+        "pareto",
+        "challenge"
+      ]
+    },
+    {
+      "id": "S08",
+      "title_fr": "Should-cost composants et sourcing",
+      "title_en": "Component should-cost and sourcing",
+      "summary": "Pour obtenir le meilleur prix composant, il faut comprendre la structure de coût fournisseur et le contenu matière, reconstruire un should-cost logique, puis utiliser cette connaissance pour challenger les achats et négocier très dur au bon moment.",
+      "keywords": [
+        "should cost",
+        "poids pièce",
+        "prix matière",
+        "simple stamping 60%",
+        "complex stamping 30%",
+        "injection cost",
+        "supplier leverage",
+        "best price in the world"
+      ],
+      "details": [
+        "La première étape consiste à estimer le coût matière à partir du poids de pièce, du prix matière connu et de pertes techniques/scrap raisonnables.",
+        "Ensuite, la technologie permet d’inférer un prix total logique : par exemple simple stamping ≈ 60 % matière, complex stamping ≈ 30 % matière.",
+        "Pour l’injection, on peut détailler : surface projetée, tonnage presse, coût horaire presse, temps de cycle, volume pièce, coût matière, puis matière + valeur ajoutée.",
+        "Ce should-cost sert à challenger les achats et à préparer la négociation fournisseur.",
+        "Quand on est proche de remporter le business, il faut négocier très durement pour obtenir le meilleur prix mondial possible."
+      ],
+      "alerts": [
+        "Acheter sans should-cost conduit à accepter des prix incohérents.",
+        "Les achats doivent être challengés techniquement, pas seulement commercialement."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S02",
+        "S17",
+        "S18"
+      ],
+      "tags": [
+        "sourcing",
+        "supplier",
+        "component-cost"
+      ]
+    },
+    {
+      "id": "S09",
+      "title_fr": "Working capital / BFR",
+      "title_en": "Working capital / trade working capital",
+      "summary": "Le BFR doit être minimisé car il pèse dans le ROI, consomme du cash et accroît le risque. Il se compose des stocks, des comptes clients et des comptes fournisseurs.",
+      "keywords": [
+        "BFR",
+        "working capital",
+        "trade working capital",
+        "stocks",
+        "comptes clients",
+        "comptes fournisseurs",
+        "cash",
+        "obsolescence"
+      ],
+      "details": [
+        "Le capital à immobiliser dans un projet comprend matière première, encours, produits finis, conditions clients et conditions fournisseurs.",
+        "Le BFR se lit classiquement comme : stocks + comptes clients – comptes fournisseurs.",
+        "Même si une partie du capital est théoriquement récupérable en fin de vie, l’obsolescence et la mauvaise exécution réduisent souvent cette récupération réelle.",
+        "Un BFR élevé pèse sur le prix, le ROI et la capacité de financer la croissance."
+      ],
+      "alerts": [
+        "Sous-estimer le BFR revient à surévaluer artificiellement la rentabilité d’un projet.",
+        "Le cash est rare : tout euro immobilisé doit être challengé."
+      ],
+      "formulas": [
+        "BFR = Stocks + Accounts Receivable - Accounts Payable"
+      ],
+      "related_subject_ids": [
+        "S10",
+        "S16"
+      ],
+      "tags": [
+        "cash",
+        "finance",
+        "roi"
+      ]
+    },
+    {
+      "id": "S10",
+      "title_fr": "Optimisation des stocks et des délais",
+      "title_en": "Stock and lead-time optimization",
+      "summary": "Les stocks de matières, encours et produits finis doivent être minimisés par la proximité fournisseur, la fréquence de livraison, les flux rapides en usine et des schémas logistiques adaptés.",
+      "keywords": [
+        "stocks matière",
+        "encours",
+        "produits finis",
+        "proximité fournisseur",
+        "plateforme",
+        "transit",
+        "livraisons fréquentes",
+        "flux usine"
+      ],
+      "details": [
+        "Pour la matière première : privilégier la livraison directe ou via plateforme proche, limiter la propriété en transit, augmenter la fréquence de livraison, réduire le temps d’écoulement.",
+        "Deux solutions intéressantes : fournisseurs proches dans la même monnaie, ou fournisseurs lointains acceptant une plateforme de proximité pour servir à fréquence rapide.",
+        "Pour les encours : organiser les lignes pour traverser l’usine rapidement, réduire les stocks intermédiaires, l’espace, le risque et le capital.",
+        "Pour les produits finis : idéalement, départ usine avec enlèvements fréquents par le client ; sinon, limiter le temps de transit si livraison chez le client ; les stocks plateforme sont le pire scénario car ils cumulent plusieurs couches de stock."
+      ],
+      "alerts": [
+        "Les stocks plateforme accumulent coût usine + transit + plateforme.",
+        "Des flux lents en usine détruisent cash, surface et réactivité."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S09",
+        "S16"
+      ],
+      "tags": [
+        "inventory",
+        "logistics",
+        "cash"
+      ]
+    },
+    {
+      "id": "S11",
+      "title_fr": "Indexations",
+      "title_en": "Indexation assumptions",
+      "summary": "Les hypothèses d’indexation doivent être clairement définies dans le chiffrage, mais sans rendre l’offre inutilement complexe. Il faut calculer tous les éléments indexés en interne, puis ne mettre en avant auprès du client que les impacts significatifs.",
+      "keywords": [
+        "indexation",
+        "métaux",
+        "plastiques",
+        "poids matière",
+        "rebut",
+        "taux de change",
+        "impact prix",
+        "seuil de signification"
+      ],
+      "details": [
+        "Le chiffrage doit préciser explicitement le coût des matières indexées, le poids concerné avec rebut, le taux de change et la base de coût sur laquelle l’indexation s’applique.",
+        "Il faut considérer l’ensemble des éléments indexés en interne pour ne rien oublier.",
+        "Mais il ne faut pas complexifier l’offre client avec des indexations à impact trop faible.",
+        "Principe pratique : si une variation de 30 % d’une valeur métal ne fait pas bouger le prix de vente de plus de 1 %, il ne faut pas en parler au client."
+      ],
+      "alerts": [
+        "Ne pas chiffrer un élément indexé en interne est dangereux.",
+        "Indexer des impacts immatériels rend l’offre illisible."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S17",
+        "S20"
+      ],
+      "tags": [
+        "indexation",
+        "pricing",
+        "fx"
+      ]
+    },
+    {
+      "id": "S12",
+      "title_fr": "Intégration verticale et consolidation des marges",
+      "title_en": "Vertical integration and margin consolidation",
+      "summary": "Dans un groupe intégré verticalement, la rentabilité doit être regardée en consolidant les marges des sous-composants et du produit final. Se focaliser seulement sur la marge du produit fini conduit à sur-pricer et à perdre du business.",
+      "keywords": [
+        "intégration verticale",
+        "consolidation des marges",
+        "sous-composants",
+        "produit final",
+        "prix marché",
+        "management fees"
+      ],
+      "details": [
+        "Le business doit être jugé dans son intégralité, avec la participation de chaque sous-composant à la structure de coût globale du groupe.",
+        "Ne regarder que la marge du produit final est contreproductif car elle est souvent artificiellement faible.",
+        "Il faut reconnaître les marges sous-jacentes dans les composants internes.",
+        "Les composants internes doivent être valorisés au prix marché pour garder une structure de coût cohérente vis-à-vis des concurrents non intégrés verticalement."
+      ],
+      "alerts": [
+        "Sous-valoriser les composants internes masque la vraie marge groupe.",
+        "Sur-gonfler le produit final faute de consolidation fait perdre du business."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S06",
+        "S13",
+        "S15",
+        "S19"
+      ],
+      "tags": [
+        "vertical-integration",
+        "internal-pricing",
+        "group-margin"
+      ]
+    },
+    {
+      "id": "S13",
+      "title_fr": "Promotion simple de l’intégration verticale",
+      "title_en": "Simple promotion rule for vertical integration",
+      "summary": "Pour promouvoir l’intégration verticale sans calculs trop complexes, on peut appliquer une ristourne de 3 % sur le prix marché du sous-composant, déduite de la marge du composant, puis intégrer le prix réduit dans la BOM du produit final.",
+      "keywords": [
+        "ristourne 3%",
+        "prix marché",
+        "BOM",
+        "management fees",
+        "vertical integration promotion"
+      ],
+      "details": [
+        "La ristourne de 3 % est un mécanisme simple pour favoriser l’intégration verticale tout en restant aligné sur la logique de prix marché.",
+        "La réduction est prise sur la marge du composant interne.",
+        "Dans les faits, cela revient à abandonner environ la moitié des management fees sur les sous-composants."
+      ],
+      "alerts": [
+        "Ne pas partir du prix marché rend la comparaison fausse.",
+        "Une promotion d’intégration verticale trop agressive détruit la rentabilité du composant."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S12",
+        "S19"
+      ],
+      "tags": [
+        "vertical-integration",
+        "bom",
+        "pricing-rule"
+      ]
+    },
+    {
+      "id": "S14",
+      "title_fr": "CAPEX upfront et aversion client au cash",
+      "title_en": "Upfront CAPEX and customer aversion to prepayments",
+      "summary": "Les clients veulent de moins en moins payer du cash upfront. Le costing doit donc limiter le CAPEX générique initial, réutiliser l’existant, démarrer à basse capacité et rechercher des montages où l’outillage ou la machine sont dépréciés dans le prix pièce.",
+      "keywords": [
+        "upfront cash",
+        "generic capex",
+        "repair old machine",
+        "low capacity",
+        "no duplication",
+        "tooling in piece price",
+        "minimum volumes",
+        "SOP certainty"
+      ],
+      "details": [
+        "Il faut utiliser en priorité les moyens existants, réparer les anciennes machines si nécessaire, limiter le coût initial et éviter les duplications de capacité au démarrage.",
+        "Il faut obtenir des fournisseurs que les outillages et, si possible, certaines machines soient dépréciés dans le prix pièce plutôt que demandés en cash upfront.",
+        "Cette approche n’est acceptable que si elle est protégée contractuellement avec le client : volumes minimums, certitude sur SOP, et traitement des décalages."
+      ],
+      "alerts": [
+        "Investir lourdement upfront sans sécurisation commerciale expose à un CAPEX non récupérable.",
+        "Démarrer à trop forte capacité augmente le risque en cas de sous-volume."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S07",
+        "S16",
+        "S18"
+      ],
+      "tags": [
+        "capex",
+        "cash",
+        "customer-negotiation"
+      ]
+    },
+    {
+      "id": "S15",
+      "title_fr": "Productivité commerciale, ROI et pratique de pricing",
+      "title_en": "Commercial productivity, ROI and pricing practice",
+      "summary": "La productivité commerciale doit être comprise différemment selon l’usage : elle doit être intégrée dans les analyses de ROI, mais le pricing standard du projet n’embarque pas nécessairement une ligne de productivité explicite année par année.",
+      "keywords": [
+        "productivity",
+        "ROI",
+        "ex works",
+        "2% per year",
+        "cumulative",
+        "added value only",
+        "no explicit productivity in costing"
+      ],
+      "details": [
+        "Pour les analyses de ROI, la productivité doit être prise en compte sur le prix ex works, même si le prix de vente inclut du transport.",
+        "Les matières indexées non maîtrisées (ex. cuivre) doivent être exclues du calcul de productivité.",
+        "Une hypothèse standard est 2 % de productivité par an, cumulative dans le temps.",
+        "Quand la part matière est forte, il faut s’assurer que les fournisseurs donnent eux aussi de la productivité contractuellement ; on peut alors calculer les réductions client sur la seule valeur ajoutée.",
+        "Principe de pricing standard du groupe : le chiffrage n’intègre pas explicitement une trajectoire de productivité année par année dans le prix du projet ; on considère que les baisses de prix demandées et l’inflation seront compensées par achats + productivité usine.",
+        "Conséquence : la productivité doit être pilotée dans l’exécution réelle même si elle n’apparaît pas comme ligne explicite dans le prix initial."
+      ],
+      "alerts": [
+        "Ne pas distinguer analyse ROI et pratique standard de pricing crée des contradictions apparentes.",
+        "Oublier que la productivité est cumulative détruit la rentabilité au fil des années."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S01",
+        "S11",
+        "S19",
+        "S20"
+      ],
+      "tags": [
+        "productivity",
+        "roi",
+        "pricing"
+      ]
+    },
+    {
+      "id": "S16",
+      "title_fr": "Financement, coût du cash et factoring",
+      "title_en": "Financing, cost of cash and factoring",
+      "summary": "Le financement doit être examiné au niveau du CAPEX lourd et du BFR. Le coût du cash doit être représenté par Euribor 3 mois + 5 %, et les délais de paiement étendus doivent être financés et refacturés correctement.",
+      "keywords": [
+        "financement",
+        "Euribor 3M + 5%",
+        "factoring",
+        "credit insurance",
+        "bank loan",
+        "payment terms",
+        "cash cost"
+      ],
+      "details": [
+        "Pour un projet lourd, il peut être nécessaire d’aller chercher de l’argent à la banque et de documenter que le client paiera bien.",
+        "Pour le BFR, on peut recourir au factoring afin d’étendre les conditions de paiement tout en les finançant.",
+        "Le factoring n’est possible que si le groupe a un contrat dans la zone et si le client est couvert par une assurance-crédit.",
+        "Si des délais de paiement supplémentaires sont accordés, le coût financier groupe sur la période étendue doit être ajouté au prix.",
+        "Pour les calculs de financement ou de ROI, le taux de référence à utiliser est Euribor 3 mois + 5 %."
+      ],
+      "alerts": [
+        "Des délais clients plus longs ne sont jamais gratuits.",
+        "Un projet lourd non finançable n’est pas un vrai projet rentable."
+      ],
+      "formulas": [
+        "Reference financing rate = Euribor 3M + 5%"
+      ],
+      "related_subject_ids": [
+        "S09",
+        "S10",
+        "S14",
+        "S20"
+      ],
+      "tags": [
+        "finance",
+        "cash",
+        "factoring",
+        "roi"
+      ]
+    },
+    {
+      "id": "S17",
+      "title_fr": "Prix objectif client",
+      "title_en": "Customer target price",
+      "summary": "Le prix objectif donné par le client est un repère fondamental. Pour l’analyser correctement, il faut comparer un prix départ usine, sans transport et hors productivité, puis interpréter l’écart selon des plages d’action commerciales ou de remise en cause technique.",
+      "keywords": [
+        "prix objectif",
+        "target price",
+        "ex works comparison",
+        "5 to 15 percent above",
+        "commercial action",
+        "too far above target"
+      ],
+      "details": [
+        "La comparaison doit se faire sur une base propre : départ usine, sans transport, hors productivité.",
+        "Si le prix calculé est en dessous du prix objectif, le commerce doit tenter d’obtenir mieux.",
+        "Si le prix minimum est entre 5 % et 15 % au-dessus du prix objectif, la situation est généralement saine car les prix objectifs sont souvent agressifs ; c’est au commerce de conclure.",
+        "Si le prix minimum est à plus de 15 % au-dessus du prix objectif, cela signifie en général qu’un élément n’a pas été bien compris ou optimisé : matière, investissement, capital, main-d’œuvre, logistique, etc.",
+        "Dans ce cas, il faut rechercher la cause et, si nécessaire, demander au client de guider sur la structure de coût attendue."
+      ],
+      "alerts": [
+        "Comparer au prix objectif avec transport ou productivité fausse le diagnostic.",
+        "Être très au-dessus du target price est un signal d’incompréhension, pas seulement de mauvaise négociation."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S01",
+        "S02",
+        "S07",
+        "S16"
+      ],
+      "tags": [
+        "pricing",
+        "sales",
+        "customer"
+      ]
+    },
+    {
+      "id": "S18",
+      "title_fr": "Rentabilité cible par type de produit",
+      "title_en": "Target profitability by product type",
+      "summary": "Le niveau de rentabilité attendu dépend du type de produit. Les assemblages acceptent une rentabilité plus faible que les balais ou matériaux avancés, où la technologie et le savoir-faire justifient un retour plus élevé.",
+      "keywords": [
+        "rentabilité",
+        "assemblages 15%",
+        "matériaux avancés 40%",
+        "brushes",
+        "technology",
+        "know-how"
+      ],
+      "details": [
+        "Pour les assemblages, la rentabilité attendue est plus faible car le taux matière est élevé et le produit relativement simple.",
+        "Pour les balais et matériaux avancés, la technologie, le savoir-faire et la différenciation sont plus importants, donc la rentabilité cible doit être plus élevée.",
+        "Repères : environ 15 % pour les assemblages, jusqu’à 40 % pour les matériaux avancés."
+      ],
+      "alerts": [
+        "Appliquer une cible unique à tous les produits est une erreur.",
+        "Une forte part matière justifie une lecture différente de la marge."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S01",
+        "S12",
+        "S20"
+      ],
+      "tags": [
+        "profitability",
+        "product-family",
+        "strategy"
+      ]
+    },
+    {
+      "id": "S19",
+      "title_fr": "Productivité en intégration verticale",
+      "title_en": "Productivity in vertical integration",
+      "summary": "Dans un modèle intégré verticalement, la productivité doit être pilotée non seulement au niveau du produit fini, mais aussi au niveau de chaque composant interne. Les usines internes doivent se comporter comme des fournisseurs externes compétitifs.",
+      "keywords": [
+        "productivité interne",
+        "vertical integration productivity",
+        "internal plants",
+        "subcomponents",
+        "yearly productivity",
+        "remain profitable"
+      ],
+      "details": [
+        "Les usines internes doivent donner de la productivité chaque année et rester rentables, comme le feraient des fournisseurs externes.",
+        "La gestion de la productivité ne doit pas s’arrêter au produit fini ; sinon, des dérives sont cachées dans les composants internes.",
+        "Ce principe amplifie la discipline nécessaire quand le pricing standard n’intègre pas explicitement de productivité année par année."
+      ],
+      "alerts": [
+        "Considérer les usines internes comme “gratuites” ou passives détruit la compétitivité groupe.",
+        "Sans pilotage composant par composant, l’intégration verticale masque ses inefficacités."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S12",
+        "S13",
+        "S15"
+      ],
+      "tags": [
+        "vertical-integration",
+        "productivity",
+        "internal-supplier"
+      ]
+    },
+    {
+      "id": "S20",
+      "title_fr": "Choix de méthode de calcul de rentabilité / pricing",
+      "title_en": "Choice of profitability / pricing calculation method",
+      "summary": "Le niveau de sophistication du calcul doit dépendre du profil du projet. Les projets atypiques ou lourds nécessitent des études multiannuelles détaillées, alors que les projets plus simples peuvent utiliser une règle de pricing simplifiée.",
+      "keywords": [
+        "VAN",
+        "multi-year study",
+        "high material",
+        "Asia stock",
+        "DAP remote zones",
+        "pre-study cost",
+        "simplified pricing rule",
+        "material below 55%"
+      ],
+      "details": [
+        "Un calcul complexe avec étude multiannuelle et équilibrage de VAN est nécessaire quand le projet présente une structure de coût/capital inhabituelle : fort taux matière, achats en Asie avec beaucoup de stock, DAP lointain, gros investissements génériques, coûts de pré-étude élevés, etc.",
+        "Quand le taux matière est inférieur à 55 %, les délais de paiement inférieurs à 60 jours et que l’on achète/vend dans la même zone, on peut utiliser une règle simplifiée.",
+        "Règle simplifiée avant productivité : (matière rendue + scrap) × 1,07 + (DL + VOH) × (2,5 à 3), puis ajouter packaging et éventuellement transport.",
+        "Cette règle donne un prix de départ robuste quand la structure du projet est standard."
+      ],
+      "alerts": [
+        "Utiliser la règle simplifiée sur un projet atypique conduit à sous-estimer le risque.",
+        "Un modèle complexe n’est utile que quand la structure du projet le justifie."
+      ],
+      "formulas": [
+        "Simplified price before productivity = (Delivered material + scrap) * 1.07 + (DL + VOH) * (2.5 to 3) + packaging + optional transport"
+      ],
+      "related_subject_ids": [
+        "S09",
+        "S15",
+        "S16",
+        "S18"
+      ],
+      "tags": [
+        "methodology",
+        "pricing",
+        "roi"
+      ]
+    },
+    {
+      "id": "S21",
+      "title_fr": "Business links",
+      "title_en": "Business links",
+      "summary": "Les business links demandés par certains clients pour attribuer le business doivent être traités comme un CAPEX générique, amorti sur la vie du produit, et rester plafonnés à 2 % de la valeur ajoutée annuelle.",
+      "keywords": [
+        "business link",
+        "commercial check",
+        "generic capex",
+        "2% yearly added value",
+        "life of product"
+      ],
+      "details": [
+        "Un business link est une contribution financière pour sécuriser l’attribution d’un nouveau business.",
+        "Il doit être traité comme un CAPEX générique et déprécié sur la durée de vie du produit.",
+        "Il ne doit pas dépasser 2 % de la valeur ajoutée annuelle du programme."
+      ],
+      "alerts": [
+        "Un business link excessif détruit le ROI réel du projet.",
+        "Traiter le business link comme une remise immédiate masque sa vraie nature économique."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S14",
+        "S16",
+        "S18"
+      ],
+      "tags": [
+        "commercial",
+        "capex",
+        "roi"
+      ]
+    },
+    {
+      "id": "S22",
+      "title_fr": "Fragmentation géographique et conformité",
+      "title_en": "Geographic fragmentation and compliance",
+      "summary": "Chaque offre doit être conforme à la stratégie industrielle de localisation du groupe et aux contraintes réglementaires/contractuelles de la zone. Tout changement de stratégie de localisation doit impliquer les dirigeants compétents.",
+      "keywords": [
+        "localisation",
+        "industrial strategy",
+        "VP Sales",
+        "VP Product Line",
+        "Euromed",
+        "US import rules",
+        "Mexico import rules",
+        "compliance"
+      ],
+      "details": [
+        "À chaque offre, il faut vérifier que le chiffrage est conforme à la stratégie industrielle du groupe en termes de localisation.",
+        "Tout changement de stratégie de localisation doit impliquer le VP Sales et le VP Product Line.",
+        "Le chiffrage doit aussi vérifier que l’offre est compliant avec les règles de localisation applicables : contrat Euromed pour la Tunisie, importation US, importation Mexique, etc.",
+        "Le bon chiffrage doit être à la fois compétitif, stratégiquement cohérent et compliant."
+      ],
+      "alerts": [
+        "Une offre compétitive mais non conforme à la stratégie groupe ou aux règles d’importation est une mauvaise offre.",
+        "Le costing ne doit pas faire dériver seul la stratégie industrielle."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S14",
+        "S17"
+      ],
+      "tags": [
+        "geography",
+        "compliance",
+        "strategy"
+      ]
+    },
+    {
+      "id": "S23",
+      "title_fr": "Revue périodique des paramètres économiques avec la finance groupe",
+      "title_en": "Periodic review of economic parameters with group finance",
+      "summary": "L’équipe de chiffrage doit revoir périodiquement avec la finance groupe les paramètres économiques utilisés dans les offres afin de s’assurer que les hypothèses de costing restent cohérentes, à jour et alignées avec la stratégie industrielle du groupe.",
+      "keywords": [
+        "finance groupe",
+        "revue périodique",
+        "paramètres de coût",
+        "taux horaire",
+        "management fees",
+        "stratégie industrielle",
+        "frais fixes",
+        "pourcentage de valeur ajoutée",
+        "taux d'intérêt",
+        "hypothèses économiques",
+        "costing governance"
+      ],
+      "details": [
+        "Les paramètres économiques de référence ne doivent pas rester figés trop longtemps : ils doivent être revus à fréquence définie avec la finance groupe.",
+        "La revue doit confirmer que les bons paramètres sont en place dans les chiffrages et que les équipes utilisent une base commune.",
+        "Les paramètres à revoir incluent au minimum : taux horaires, management fees, stratégie industrielle de référence, frais fixes exprimés en pourcentage de la valeur ajoutée, taux d’intérêt et autres hypothèses économiques majeures.",
+        "Cette revue périodique évite les dérives entre sites, les offres basées sur des hypothèses obsolètes et les incohérences entre costing, finance et stratégie groupe.",
+        "La fréquence exacte doit être fixée par la gouvernance du groupe, mais le principe est qu’aucune équipe de chiffrage ne doit fonctionner durablement sans recalage formel avec la finance groupe."
+      ],
+      "alerts": [
+        "Utiliser des paramètres anciens ou non alignés avec la finance groupe peut dégrader fortement la qualité des offres.",
+        "Des écarts non maîtrisés sur taux horaire, management fees, taux d’intérêt ou frais fixes peuvent fausser la rentabilité apparente et conduire à de mauvaises décisions commerciales."
+      ],
+      "formulas": [],
+      "related_subject_ids": [
+        "S16",
+        "S18",
+        "S20",
+        "S22"
+      ],
+      "tags": [
+        "governance",
+        "finance",
+        "parameter_review",
+        "costing_control"
+      ]
+    }
+  ],
+  "cause_effect_relationships": [
+    {
+      "id": "CE01",
+      "cause": "Material cost is high",
+      "effects": [
+        "Selling price loses competitiveness",
+        "Margin is compressed",
+        "Working capital increases",
+        "Indexation exposure increases",
+        "Future productivity pressure becomes harder to absorb"
+      ],
+      "drivers_to_check": [
+        "Supplier price",
+        "Part weight / design",
+        "Scrap and technical losses",
+        "Freight / duties / approach costs",
+        "Wrong costing assumptions"
+      ],
+      "related_subject_ids": [
+        "S01",
+        "S02",
+        "S08",
+        "S11",
+        "S17"
+      ]
+    },
+    {
+      "id": "CE02",
+      "cause": "Automation is oversized",
+      "effects": [
+        "CAPEX increases",
+        "Risk increases if volumes are lower than planned",
+        "Maintenance and spare-parts burden rises",
+        "Flexibility falls",
+        "ROI deteriorates"
+      ],
+      "drivers_to_check": [
+        "Manual vs automatic loading",
+        "Country labor cost",
+        "Machine utilization",
+        "Need for robot or vision system"
+      ],
+      "related_subject_ids": [
+        "S03",
+        "S07",
+        "S14"
+      ]
+    },
+    {
+      "id": "CE03",
+      "cause": "Tooling/investment assumptions are wrong",
+      "effects": [
+        "Unnecessary cash consumption",
+        "ROI destruction",
+        "Space consumption",
+        "Operational dispersion",
+        "Additional spare-parts and maintenance burden"
+      ],
+      "drivers_to_check": [
+        "Machine rate assumptions",
+        "Shift assumptions",
+        "Press speed assumptions",
+        "Tonnage assumptions",
+        "Need for duplication"
+      ],
+      "related_subject_ids": [
+        "S05",
+        "S07",
+        "S14"
+      ]
+    },
+    {
+      "id": "CE04",
+      "cause": "Working capital is high",
+      "effects": [
+        "Project ROI deteriorates",
+        "Cash is immobilized",
+        "Growth financing becomes harder",
+        "Obsolescence risk increases"
+      ],
+      "drivers_to_check": [
+        "Raw material days",
+        "WIP flow speed",
+        "Finished goods stock model",
+        "Customer payment terms",
+        "Supplier payment terms"
+      ],
+      "related_subject_ids": [
+        "S09",
+        "S10",
+        "S16"
+      ]
+    },
+    {
+      "id": "CE05",
+      "cause": "Only final-product margin is analyzed in a vertically integrated group",
+      "effects": [
+        "Final price is overinflated",
+        "Business is lost",
+        "True group profitability is misunderstood",
+        "Internal components are mismanaged"
+      ],
+      "drivers_to_check": [
+        "Internal component market price",
+        "Consolidated margin view",
+        "Transfer pricing logic",
+        "Internal tooling/investment allocation"
+      ],
+      "related_subject_ids": [
+        "S06",
+        "S12",
+        "S13",
+        "S19"
+      ]
+    },
+    {
+      "id": "CE06",
+      "cause": "Customer target price is more than 15% below our minimum price",
+      "effects": [
+        "Likely misunderstanding or wrong assumption",
+        "Need to challenge material, labor, investment, capital or logistics",
+        "Potential need to ask customer for guidance on expected cost structure"
+      ],
+      "drivers_to_check": [
+        "Material content",
+        "Capital cost",
+        "Labor content",
+        "Investment level",
+        "Logistics and duties"
+      ],
+      "related_subject_ids": [
+        "S17",
+        "S20"
+      ]
+    },
+    {
+      "id": "CE07",
+      "cause": "Productivity is not managed on internal components in a vertically integrated model",
+      "effects": [
+        "Internal inefficiencies remain hidden",
+        "Group competitiveness deteriorates over time",
+        "Price reductions from customers are not offset"
+      ],
+      "drivers_to_check": [
+        "Annual productivity by internal plant",
+        "Internal component should-cost evolution",
+        "Supplier-like performance discipline"
+      ],
+      "related_subject_ids": [
+        "S15",
+        "S19"
+      ]
+    },
+    {
+      "id": "CE08",
+      "cause": "Indexation model is too complex for negligible economic impact",
+      "effects": [
+        "Offer becomes hard to understand",
+        "Commercial discussion is polluted",
+        "Customer relationship becomes more difficult"
+      ],
+      "drivers_to_check": [
+        "Sensitivity of final price to index",
+        "Magnitude of pass-through impact",
+        "Need for external communication versus internal calculation"
+      ],
+      "related_subject_ids": [
+        "S11"
+      ]
+    },
+    {
+      "id": "CE09",
+      "cause": "Economic costing parameters are outdated or inconsistent across teams/sites",
+      "effects": [
+        "Quotes are built on wrong assumptions",
+        "Apparent profitability is distorted",
+        "Misalignment appears between costing, finance and industrial strategy",
+        "Commercial decisions become less reliable",
+        "Cross-site comparisons become inconsistent"
+      ],
+      "drivers_to_check": [
+        "Hourly rates",
+        "Management fees",
+        "Fixed-cost percentages",
+        "Interest rate assumptions",
+        "Industrial strategy assumptions",
+        "Last formal review with group finance"
+      ],
+      "related_subject_ids": [
+        "S23",
+        "S16",
+        "S18",
+        "S22"
+      ]
+    }
+  ],
+  "decision_rules": [
+    {
+      "id": "DR01",
+      "name": "Reacting to high material cost",
+      "if": "Material cost appears too high",
+      "then": [
+        "Rebuild logical material cost from weight, material price, scrap and approach cost",
+        "Check supplier price vs should-cost",
+        "Check redesign options",
+        "Check logistics / duties / sourcing zone",
+        "Do not cut value added first"
+      ],
+      "related_subject_ids": [
+        "S01",
+        "S02",
+        "S08",
+        "S11"
+      ]
+    },
+    {
+      "id": "DR02",
+      "name": "Selecting pricing method",
+      "if": "Material rate <55%, payment terms <60 days, buying and selling in same zone",
+      "then": [
+        "Use simplified pricing rule",
+        "Add packaging and optional transport",
+        "Reserve full multi-year VAN study for atypical/heavy-risk projects"
+      ],
+      "else": [
+        "Use detailed multi-year ROI/VAN model"
+      ],
+      "related_subject_ids": [
+        "S20"
+      ]
+    },
+    {
+      "id": "DR03",
+      "name": "Interpreting target price",
+      "if": "Calculated ex works price is below customer target",
+      "then": [
+        "Sales should try to get a higher price"
+      ],
+      "else_if": [
+        {
+          "condition": "Calculated minimum price is 5-15% above target",
+          "action": [
+            "Situation is generally healthy; sales must close"
+          ]
+        },
+        {
+          "condition": "Calculated minimum price is >15% above target",
+          "action": [
+            "Search for hidden misunderstanding or wrong assumption",
+            "Possibly ask customer for guidance on cost structure"
+          ]
+        }
+      ],
+      "related_subject_ids": [
+        "S17"
+      ]
+    },
+    {
+      "id": "DR04",
+      "name": "Validating economic parameters before or during quoting cycles",
+      "if": "Costing team is using economic parameters for offers",
+      "then": [
+        "Review the parameter set with group finance at the defined periodic interval",
+        "Confirm hourly rates, management fees, fixed-cost percentages, industrial strategy assumptions and interest rates",
+        "Update the costing base if assumptions are obsolete or inconsistent",
+        "Ensure all teams quote from the same economic reference"
+      ],
+      "related_subject_ids": [
+        "S23",
+        "S16",
+        "S18",
+        "S22"
+      ]
+    },
+    {
+      "id": "DR05",
+      "name": "Handling customer aversion to upfront cash",
+      "if": "Customer resists upfront tooling or investment payments",
+      "then": [
+        "Minimize generic upfront CAPEX",
+        "Use existing equipment first",
+        "Repair old machine to start if feasible",
+        "Start with low capacity and no duplication",
+        "Push suppliers to depreciate tooling/machine into piece price",
+        "Secure minimum volumes and SOP certainty contractually"
+      ],
+      "related_subject_ids": [
+        "S14"
+      ]
+    },
+    {
+      "id": "DR06",
+      "name": "Deciding whether to externalize indexation",
+      "if": "Index movement has only immaterial effect on final selling price",
+      "then": [
+        "Keep it in internal costing logic",
+        "Do not put it forward to the customer"
+      ],
+      "related_subject_ids": [
+        "S11"
+      ]
+    }
+  ],
+  "question_routes": [
+    {
+      "pattern": "My material is too high / Ma matière est trop élevée",
+      "route_to_subject_ids": [
+        "S01",
+        "S02",
+        "S08",
+        "S11",
+        "S17"
+      ],
+      "expected_answer_shape": [
+        "Likely causes",
+        "Immediate recalculation logic",
+        "Order of attack",
+        "Impact on pricing and ROI"
+      ]
+    },
+    {
+      "pattern": "How do I compare to customer target price?",
+      "route_to_subject_ids": [
+        "S17",
+        "S20"
+      ],
+      "expected_answer_shape": [
+        "Normalize to ex works without transport/productivity",
+        "Compare to target",
+        "Interpret gap",
+        "Give action"
+      ]
+    },
+    {
+      "pattern": "Should I do a detailed ROI/VAN study or a simple pricing rule?",
+      "route_to_subject_ids": [
+        "S20",
+        "S16",
+        "S09"
+      ],
+      "expected_answer_shape": [
+        "Check project profile",
+        "Choose simple vs detailed method",
+        "Explain why"
+      ]
+    },
+    {
+      "pattern": "How should I think about internal components in a vertically integrated group?",
+      "route_to_subject_ids": [
+        "S12",
+        "S13",
+        "S19",
+        "S06"
+      ],
+      "expected_answer_shape": [
+        "Explain market-price valuation",
+        "Explain margin consolidation",
+        "Explain internal tooling/capex allocation",
+        "Explain internal productivity discipline"
+      ]
+    },
+    {
+      "pattern": "How do I review tooling and investment cost before sending a quote?",
+      "route_to_subject_ids": [
+        "S07",
+        "S05",
+        "S14"
+      ],
+      "expected_answer_shape": [
+        "Build Pareto list",
+        "Challenge top 80%",
+        "Check plastic/stamping assumptions",
+        "Check duplication, shifts, open time"
+      ]
+    },
+    {
+      "pattern": "When should the costing team review cost parameters with group finance?",
+      "route_to_subject_ids": [
+        "S23",
+        "S16",
+        "S18",
+        "S22"
+      ],
+      "expected_answer_shape": [
+        "State the principle of periodic review",
+        "List the economic parameters to validate",
+        "Explain why outdated assumptions are dangerous",
+        "Link to finance and industrial strategy governance"
+      ]
+    }
+  ],
+  "training_modules": [
+    {
+      "id": "TM01",
+      "title": "Costing foundations: where money is really made",
+      "learning_objectives": [
+        "Differentiate material, value added and approach/logistics cost",
+        "Understand why material reduction comes before value-added reduction",
+        "Recognize when pricing destroys contribution"
+      ],
+      "subject_ids": [
+        "S01",
+        "S02",
+        "S18"
+      ]
+    },
+    {
+      "id": "TM02",
+      "title": "Line design, labor and quality protection",
+      "learning_objectives": [
+        "Choose the right balance between labor and automation",
+        "Use ergonomic manual operations where economically better",
+        "Maintain process protection with poka-yoke and end-of-line controls"
+      ],
+      "subject_ids": [
+        "S03",
+        "S04"
+      ]
+    },
+    {
+      "id": "TM03",
+      "title": "Tooling, CAPEX and pre-launch discipline",
+      "learning_objectives": [
+        "Classify tooling and investments",
+        "Apply Pareto review",
+        "Reduce upfront CAPEX",
+        "Protect the group against wrong capacity assumptions"
+      ],
+      "subject_ids": [
+        "S05",
+        "S06",
+        "S07",
+        "S14",
+        "S21"
+      ]
+    },
+    {
+      "id": "TM04",
+      "title": "Supplier challenge and should-cost methods",
+      "learning_objectives": [
+        "Reconstruct should-cost from weight and process",
+        "Challenge supplier prices with logic",
+        "Prepare final negotiation when award is close"
+      ],
+      "subject_ids": [
+        "S08",
+        "S11"
+      ]
+    },
+    {
+      "id": "TM05",
+      "title": "Cash, BFR and financing logic",
+      "learning_objectives": [
+        "Understand BFR structure",
+        "Reduce stock and payment-term burden",
+        "Use financing tools intelligently"
+      ],
+      "subject_ids": [
+        "S09",
+        "S10",
+        "S16"
+      ]
+    },
+    {
+      "id": "TM06",
+      "title": "Vertical integration without losing competitiveness",
+      "learning_objectives": [
+        "Consolidate margins correctly",
+        "Use market-price logic for internal components",
+        "Manage internal productivity like external supplier productivity"
+      ],
+      "subject_ids": [
+        "S12",
+        "S13",
+        "S19"
+      ]
+    },
+    {
+      "id": "TM07",
+      "title": "Commercial interpretation: target price, productivity and profitability",
+      "learning_objectives": [
+        "Interpret target prices properly",
+        "Understand productivity assumptions in ROI versus price building",
+        "Match profitability target to product family"
+      ],
+      "subject_ids": [
+        "S15",
+        "S17",
+        "S18",
+        "S20"
+      ]
+    },
+    {
+      "id": "TM08",
+      "title": "Localization strategy and compliance",
+      "learning_objectives": [
+        "Check industrial localization consistency",
+        "Escalate localization changes correctly",
+        "Avoid non-compliant offers"
+      ],
+      "subject_ids": [
+        "S22"
+      ]
+    },
+    {
+      "id": "TM09",
+      "title": "Costing governance with group finance",
+      "learning_objectives": [
+        "Understand why economic parameters must be reviewed periodically",
+        "Know which parameters must be aligned with group finance",
+        "Prevent quotes built on obsolete assumptions"
+      ],
+      "subject_ids": [
+        "S23",
+        "S16",
+        "S18",
+        "S22"
+      ]
+    }
+  ],
+  "glossary": [
+    {
+      "term": "BFR / Working Capital",
+      "definition": "Stocks + comptes clients - comptes fournisseurs; cash immobilized to run the business."
+    },
+    {
+      "term": "Value Added",
+      "definition": "The part of the selling price created by the company through labor, process, know-how and industrial transformation."
+    },
+    {
+      "term": "Specific Tooling",
+      "definition": "Tooling dedicated to a customer/product and normally paid by the customer."
+    },
+    {
+      "term": "Generic CAPEX",
+      "definition": "Investment borne by the group and usable beyond one single customer program."
+    },
+    {
+      "term": "Business Link",
+      "definition": "Financial contribution paid to secure a business award; treated as generic CAPEX and depreciated over the product life."
+    },
+    {
+      "term": "Ex Works",
+      "definition": "Price basis excluding transport from the plant; reference basis for many comparisons and productivity logic."
+    },
+    {
+      "term": "Should-Cost",
+      "definition": "Logical estimated cost rebuilt from material content, process assumptions and reasonable economics."
+    },
+    {
+      "term": "Poka-Yoke",
+      "definition": "Mistake-proofing mechanism ensuring process conditions were correctly achieved."
+    },
+    {
+      "term": "Euromed",
+      "definition": "Trade/regulatory framework relevant for localization and compliance, especially for Tunisia-related offers."
+    }
+  ],
+  "qa_examples": [
+    {
+      "question": "Ma matière est trop élevée. Que faire ?",
+      "answer_outline": [
+        "Reconstituer coût matière logique",
+        "Vérifier prix achat vs should-cost",
+        "Vérifier poids / design / scrap / frais d’approche",
+        "Ne pas baisser la valeur ajoutée avant d’avoir challengé la matière"
+      ],
+      "subject_ids": [
+        "S01",
+        "S02",
+        "S08",
+        "S11"
+      ]
+    },
+    {
+      "question": "Le client donne un target price très bas. Comment l’interpréter ?",
+      "answer_outline": [
+        "Comparer sur base départ usine hors transport et hors productivité",
+        "Si < target: remonter le prix",
+        "Si 5-15% au-dessus: situation saine, commerce doit conclure",
+        "Si >15% au-dessus: chercher ce qui est faux ou incompris"
+      ],
+      "subject_ids": [
+        "S17"
+      ]
+    },
+    {
+      "question": "Faut-il embarquer la productivité dans le prix du projet ?",
+      "answer_outline": [
+        "Pour le ROI, oui, la productivité doit être considérée",
+        "Pour le pricing standard, le groupe n’intègre pas forcément une ligne explicite de productivité année par année",
+        "Mais il faut piloter la productivité réelle en usine et chez les fournisseurs"
+      ],
+      "subject_ids": [
+        "S15",
+        "S19"
+      ]
+    }
+  ],
+  "updated_on": "2026-03-26"
+}
