@@ -23,10 +23,17 @@ class Settings(BaseSettings):
     API_V1_PREFIX: str = "/api/v1"
     DATABASE_URL: str
     OPENAI_API_KEY: str
-    OPENAI_CHAT_MODEL: str = "gpt-4-mini"  # Defaulting to most common mini model name
+    OPENAI_CHAT_MODEL: str = "gpt-4-mini"
     OPENAI_EMBEDDING_MODEL: str = "text-embedding-3-small"
     CORS_ORIGINS: str = "https://avo-kms-rag-knowledge.azurewebsites.net"
     KNOWLEDGE_FILE: str = "./costing_kms_rag_knowledge_base_v2.json"
+
+    @property
+    def api_v1_prefix(self) -> str:
+        prefix = self.API_V1_PREFIX.strip()
+        if not prefix.startswith("/"):
+            prefix = f"/{prefix}"
+        return prefix
 
 
 settings = Settings()
