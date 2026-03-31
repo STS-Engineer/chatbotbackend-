@@ -6,11 +6,15 @@ from app.api.routes import router
 
 app = FastAPI(title=settings.APP_NAME)
 
-origins = [item.strip() for item in settings.CORS_ORIGINS.split(",")]
+origins = [
+    "https://avo-kms-rag-knowledge.azurewebsites.net"
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=[
+        "https://avo-kms-rag-knowledge.azurewebsites.net"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
