@@ -34,11 +34,4 @@ async def global_exception_handler(request: Request, exc: Exception):
     )
 
 
-prefix = settings.API_V1_PREFIX.strip()
-if not prefix.startswith("/"):
-    prefix = "/" + prefix
-
-print("API_V1_PREFIX loaded as:", repr(settings.API_V1_PREFIX))
-print("API_V1_PREFIX normalized:", repr(prefix))
-
-app.include_router(router, prefix=prefix)
+app.include_router(router, prefix=settings.API_V1_PREFIX)
