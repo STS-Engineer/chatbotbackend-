@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     OPENAI_API_KEY: str
     OPENAI_CHAT_MODEL: str = "gpt-4-mini"  # Defaulting to most common mini model name
     OPENAI_EMBEDDING_MODEL: str = "text-embedding-3-small"
-    CORS_ORIGINS: str = "http://localhost:5173"
+    CORS_ORIGINS: str = "https://avo-kms-rag-knowledge.azurewebsites.net"
     KNOWLEDGE_FILE: str = "./costing_kms_rag_knowledge_base_v2.json"
 
 
